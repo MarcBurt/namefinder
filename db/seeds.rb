@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+File.open('db/raw_names.txt').each do |line|
+  line.gsub!(/\n/, "")
+  FirstName.create(name: line)
+  puts line + " added"
+end
